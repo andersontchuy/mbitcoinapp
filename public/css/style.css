@@ -1,8 +1,37 @@
-body {
-  padding: 50px;
+.navbar {
+  border-bottom: 5px solid #F49518;
+  background-color: #ccc;
+}
+
+.container,
+.footer {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
-a {
-  color: #00B7FF;
+.container {
+  margin-top: 2px;
+  padding: 25px;
+  color: #465B6C;
+  background-color: #EBECEE;
+}
+
+.link {
+  color: #23A86A;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: #F49518;
+}
+
+.text-block-4 {
+  margin-top: 20px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.footer {
+  padding: 50px;
+  color: #fff;
+  background-color: #465B6C;
 }

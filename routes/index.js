@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'mbapp' });
+  res.render('index', { title: 'MCoinapp' });
 });
 
 module.exports = router;
