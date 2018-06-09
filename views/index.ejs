@@ -5,9 +5,20 @@
   </head>
   <body>
     <% include partials/header %>
-    <section class="container w-container">
-      <h2>Mercado Bitcoin App</h2>
+    <section class="container">
+      <h3>MOEDA DIGITAL</h3>
+      <div class="button-wrapper">
+        <a id="btc" class="btn btn-btc" href="#"><span>Bitcoin</span></a>
+        <a id="ltc" class="btn btn-ltc" href="#"><span>Litecoin</span></a>
+        <a id="bch" class="btn btn-bch" href="#"><span>BCash</span></a> 
+      </div>
+      <div class="talks-wrapper">
+        <div class="talks">
+          <p id="txt"></p>
+        </div>
+      </div>
     </section>
     <% include partials/footer %>
+    <script src="../js/index.js"></script>
   </body>
 </html>

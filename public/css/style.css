@@ -1,6 +1,11 @@
 .navbar {
+  height: 90px;
   border-bottom: 5px solid #F49518;
-  background-color: #ccc;
+  background-color: #465B6C;
+  background-image: url("../img/mb-logo-dark.png");
+  background-repeat: no-repeat;
+  background-position-y: center;
+  background-position-x: 10px;
 }
 
 .container,
@@ -28,6 +33,37 @@
   margin-top: 20px;
   font-weight: 700;
   text-align: center;
+}
+
+.btn {
+  padding: 10px;
+  color: #FFF;
+  background-color: #465B6C;
+  text-decoration: none;
+}
+
+.btn:hover {
+  background-color: #3A4C5A;
+}
+
+.btn-btc:active {
+  background-color: #F7AA61;
+}
+
+.btn-ltc:active {
+  background-color: #AFAAD6;
+}
+
+.btn-bch:active {
+  background-color: #85BB65;
+}
+
+.talks-wrapper {
+  display: flex;
+  justify-content: center;
+  background-color: #FFF;
+  margin-top: 25px;
+  height: 300px;
 }
 
 .footer {
