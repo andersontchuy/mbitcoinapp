@@ -1,11 +1,35 @@
 .navbar {
-  height: 90px;
+  height: 100px;
   border-bottom: 5px solid #F49518;
   background-color: #465B6C;
   background-image: url("../img/mb-logo-dark.png");
   background-repeat: no-repeat;
   background-position-y: center;
   background-position-x: 10px;
+  
+}
+
+.ticker-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-top: 20px;
+}
+
+.ticker-block {
+  color: #FFF;
+  font: 8.5px "Lucida Grande", Helvetica, Arial, sans-serif;
+  width: 90px;
+  padding: 5px 0px 5px 5px;
+  margin-right: 10px;
+}
+
+.ticker-value {
+  font-size: 15px;
+}
+
+.ticker-yellow-text {
+  font-weight: bold;
+  color: #FBD159;
 }
 
 .container,
