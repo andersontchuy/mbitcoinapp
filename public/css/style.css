@@ -18,9 +18,10 @@
 .ticker-block {
   color: #FFF;
   font: 8.5px "Lucida Grande", Helvetica, Arial, sans-serif;
-  width: 90px;
+  width: 110px;
   padding: 5px 0px 5px 5px;
-  margin-right: 10px;
+  margin-right: 2px;
+  /* background-color: red; */
 }
 
 .ticker-value {
