@@ -10,6 +10,7 @@ $(function() {
  
     function loadCoin(value) {
       showTicker(value);
+      showOrderBook(value);
     }
 
     function showTicker(value) {
@@ -36,13 +37,32 @@ $(function() {
           .toFixed(2).replace('.', ',')}`;
         field.vol.innerHTML = `${parseFloat(data.ticker.vol)
           .toFixed(3).replace('.', ',')} ${coin.id.toUpperCase()}`; 
-
-        console.log(data);
+          
+        console.log('ticker', data);
       });
-      console.log('selectedCoin: ', selected);
+
+      console.log('selectedCoin', selected);
       selected.id = coin.id;
-      console.log(`${path}/${coin.id}/ticker/`);
-        
+      console.log(`URL: ${path}/${coin.id}/ticker/`);
+    }
+
+    function showOrderBook(value) {
+      const coin = value.target === undefined 
+        ? selected : value.target;
+      const field = { title: elementId('orderbook-title') };
+
+      $.getJSON(`${path}/${coin.id}/orderbook/`).done(function(data) {
+        console.log('orderbook', data);
+      });
+
+      switch(coin.id) {
+        case 'btc': 
+          field.title.innerHTML = 'Negociações Bitcoin'; break;
+        case 'ltc':
+          field.title.innerHTML = 'Negociações Litecoin'; break;
+        case 'bch':
+          field.title.innerHTML = 'Negociações BCash'; break;
+      }
     }
 
     elementId('btc').onclick = loadCoin;
