@@ -11,6 +11,7 @@ $(function() {
     function loadCoin(value) {
       showTicker(value);
       showOrderBook(value);
+      showTrades(value);
     }
 
     function showTicker(value) {
@@ -57,7 +58,7 @@ $(function() {
 
         bids.forEach(function(element, index) {
           if(index < 20) {
-            $('.bids-header')
+            $('.bids-head')
             .append($('<tr />').addClass('bids-row'))
             .append(
               $('<td />').addClass('quantity bids-quantity')
@@ -70,7 +71,7 @@ $(function() {
 
         asks.forEach(function(element, index) {
           if(index < 20) {
-            $('.asks-header')
+            $('.asks-head')
             .append($('<tr />').addClass('asks-row'))
             .append(
               $('<td />').addClass('quantity asks-quantity')
@@ -101,6 +102,38 @@ $(function() {
         case 'bch':
           field.title.innerHTML = 'Últimas Negociações BCash'; break;
       }
+    }
+
+    function showTrades(value) {
+      const coin = value.target === undefined 
+        ? selected : value.target;
+
+      $.getJSON(`${path}/${coin.id}/trades/`).done(function(data) {
+        data.forEach(function(element, index) {
+          if(index < 20) {
+            $('.trades-head')
+            .append($('<tr />').addClass('trades-row'))
+            .append(
+              $('<td />').addClass('date trades-date')
+                .text(element.date),
+              $('<td />').addClass(`type trades-type 
+              ${element.type === "sell" ? 'trades-sell' : 'trades-buy'}`)
+                .text(element.type === 'sell' ? 'Venda' : 'Compra'),
+              $('<td />').addClass('quantity trades-quantity')
+                .text(element.amount.toFixed(5).replace('.', ',')),
+              $('<td />').addClass('price trades-price')
+                .text(element.price.toFixed(5).replace('.', ','))   
+            );
+          }
+        }) 
+        console.log('trades', data);
+      });
+
+      $('.trades-row').remove();
+      $('.trades-date').remove();
+      $('.trades-type').remove();
+      $('.trades-quantity').remove();
+      $('.trades-price').remove();
     }
 
     elementId('btc').onclick = loadCoin;

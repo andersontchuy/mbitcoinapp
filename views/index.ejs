@@ -14,24 +14,39 @@
       </div>
       <div class="negotiations">
         <h3 id="negotiations-title" class="title"></h3>
-        <div class="orderbook-wrapper">
-          <div class="bids-wrapper">
-            <em>Ordens de Compra</em>
-            <table>
-              <thead class="bids-header">
-                <th class="quantity">Quantidade</th>
-                <th class="price">Preço (R$)</th>
-              </thead>
-            </table>
-          </div>
-          <div class="asks-wrapper">
-            <em>Ordens de Venda</em>
-            <table>
-                <thead class="asks-header">
+        <div class="row">
+          <div class="orderbook-wrapper">
+            <div class="bids-wrapper">
+              <em>Ordens de Compra</em>
+              <table>
+                <thead class="bids-head">
                   <th class="quantity">Quantidade</th>
                   <th class="price">Preço (R$)</th>
                 </thead>
               </table>
+            </div>
+            <div class="asks-wrapper">
+              <em>Ordens de Venda</em>
+              <table>
+                  <thead class="asks-head">
+                    <th class="quantity">Quantidade</th>
+                    <th class="price">Preço (R$)</th>
+                  </thead>
+                </table>
+            </div>
+          </div>
+          <div class="trades-wrapper">
+            <em>Ordens Executadas</em>
+            <div>
+              <table>
+                <thead class="trades-head">
+                  <th class="date">Data</th>
+                  <th class="type">Tipo</th>
+                  <th class="quantity">Quantidade</th>
+                  <th class="price">Preço (R$)</th>
+                </thead>
+              </table>
+            </div>
           </div>
         </div>
       </div>

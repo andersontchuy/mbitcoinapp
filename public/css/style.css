@@ -95,23 +95,39 @@
   text-align: center;
 }
 
+.row {
+  display: flex;
+  justify-content: center;
+}
+
 .orderbook-wrapper {
   display: flex;
 }
 
 .bids-wrapper,
-.asks-wrapper {
+.asks-wrapper,
+.trades-wrapper {
   /* background-color: #F49518; */
   margin-right: 10px; 
   padding: 10px;
 }
 
 .price,
-.quantity {
+.quantity,
+.type,
+.date {
   /* background-color: #23A86A; */
   text-align: left;
   width: 100px;
   padding: 2px 2px 2px 2px;
+}
+
+.trades-sell {
+  color: #963A56;
+}
+
+.trades-buy {
+  color: #62A86D;
 }
 
 .footer {
