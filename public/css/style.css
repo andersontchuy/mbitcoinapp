@@ -83,12 +83,35 @@
   background-color: #85BB65;
 }
 
-.talks-wrapper {
-  display: flex;
-  justify-content: center;
+.negotiations {
   background-color: #FFF;
   margin-top: 25px;
-  height: 300px;
+  padding-left: 10px;
+  height: 650px;
+}
+
+.title {
+  padding-top: 15px;
+  text-align: center;
+}
+
+.orderbook-wrapper {
+  display: flex;
+}
+
+.bids-wrapper,
+.asks-wrapper {
+  /* background-color: #F49518; */
+  margin-right: 10px; 
+  padding: 10px;
+}
+
+.price,
+.quantity {
+  /* background-color: #23A86A; */
+  text-align: left;
+  width: 100px;
+  padding: 2px 2px 2px 2px;
 }
 
 .footer {

@@ -49,19 +49,57 @@ $(function() {
     function showOrderBook(value) {
       const coin = value.target === undefined 
         ? selected : value.target;
-      const field = { title: elementId('orderbook-title') };
+      const field = { title: elementId('negotiations-title') };
 
       $.getJSON(`${path}/${coin.id}/orderbook/`).done(function(data) {
-        console.log('orderbook', data);
+        const bids = data.bids;
+        const asks = data.asks;
+
+        bids.forEach(function(element, index) {
+          if(index < 20) {
+            $('.bids-header')
+            .append($('<tr />').addClass('bids-row'))
+            .append(
+              $('<td />').addClass('quantity bids-quantity')
+                .text(element[1].toFixed(5).replace('.', ',')),
+              $('<td />').addClass('price bids-price')
+                .text(element[0].toFixed(5).replace('.', ','))
+            );
+          }
+        });
+
+        asks.forEach(function(element, index) {
+          if(index < 20) {
+            $('.asks-header')
+            .append($('<tr />').addClass('asks-row'))
+            .append(
+              $('<td />').addClass('quantity asks-quantity')
+                .text(element[1].toFixed(5).replace('.', ',')),
+              $('<td />').addClass('price asks-price')
+                .text(element[0].toFixed(5).replace('.', ','))
+            );
+          }
+        });
+
+        console.log('bids', bids);
+        console.log('asks', asks);
       });
+
+      $('.bids-row').remove();
+      $('.bids-price').remove();
+      $('.bids-quantity').remove();
+
+      $('.asks-row').remove();
+      $('.asks-price').remove();
+      $('.asks-quantity').remove();
 
       switch(coin.id) {
         case 'btc': 
-          field.title.innerHTML = 'Negociações Bitcoin'; break;
+          field.title.innerHTML = 'Últimas Negociações Bitcoin'; break;
         case 'ltc':
-          field.title.innerHTML = 'Negociações Litecoin'; break;
+          field.title.innerHTML = 'Últimas Negociações Litecoin'; break;
         case 'bch':
-          field.title.innerHTML = 'Negociações BCash'; break;
+          field.title.innerHTML = 'Últimas Negociações BCash'; break;
       }
     }
 

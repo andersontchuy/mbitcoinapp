@@ -8,13 +8,31 @@
     <section class="container">
       <h3>MOEDA DIGITAL</h3>
       <div class="button-wrapper">
-        <a id="btc" class="btn btn-btc" href="#">Bitcoin</a>
-        <a id="ltc" class="btn btn-ltc" href="#">Litecoin</a>
-        <a id="bch" class="btn btn-bch" href="#">BCash</a> 
+        <span id="btc" class="btn btn-btc">Bitcoin</span>
+        <span id="ltc" class="btn btn-ltc">Litecoin</span>
+        <span id="bch" class="btn btn-bch">BCash</span> 
       </div>
-      <div class="talks-wrapper">
-        <div class="talks">
-          <p id="orderbook-title"></p>
+      <div class="negotiations">
+        <h3 id="negotiations-title" class="title"></h3>
+        <div class="orderbook-wrapper">
+          <div class="bids-wrapper">
+            <em>Ordens de Compra</em>
+            <table>
+              <thead class="bids-header">
+                <th class="quantity">Quantidade</th>
+                <th class="price">Preço (R$)</th>
+              </thead>
+            </table>
+          </div>
+          <div class="asks-wrapper">
+            <em>Ordens de Venda</em>
+            <table>
+                <thead class="asks-header">
+                  <th class="quantity">Quantidade</th>
+                  <th class="price">Preço (R$)</th>
+                </thead>
+              </table>
+          </div>
         </div>
       </div>
     </section>
