@@ -114,12 +114,17 @@
 
 .price,
 .quantity,
-.type,
-.date {
+.type {
   /* background-color: #23A86A; */
   text-align: left;
   width: 100px;
-  padding: 2px 2px 2px 2px;
+  padding: 2px 5px;
+}
+
+.date {
+  text-align: center;
+  width: 150px;
+  padding: 2px 5px;
 }
 
 .trades-sell {

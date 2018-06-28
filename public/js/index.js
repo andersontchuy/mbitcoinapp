@@ -9,25 +9,23 @@ $(function() {
     }
  
     function loadCoin(value) {
-      showTicker(value);
-      showOrderBook(value);
-      showTrades(value);
+      const coin = value.target || selected;
+
+      showTicker(coin);
+      showOrderBook(coin);
+      showTrades(coin);
+
+      selected.id = coin.id;
+      console.log('selectedCoin', selected);
     }
 
-    function showTicker(value) {
-      const coin = value.target === undefined 
-        ? selected : value.target;
+    function showTicker(coin) {
       const field = { 
         last: elementId('ticker-last'),
         high: elementId('ticker-high'),
         low: elementId('ticker-low'),
         vol: elementId('ticker-vol')
       }
-
-      field.last.innerHTML = '-';
-      field.high.innerHTML = '-';
-      field.low.innerHTML = '-';
-      field.vol.innerHTML = '-';
 
       $.getJSON(`${path}/${coin.id}/ticker/`).done(function(data) {  
         field.last.innerHTML = `R$ ${parseFloat(data.ticker.last)
@@ -42,14 +40,15 @@ $(function() {
         console.log('ticker', data);
       });
 
-      console.log('selectedCoin', selected);
-      selected.id = coin.id;
+      field.last.innerHTML = '-';
+      field.high.innerHTML = '-';
+      field.low.innerHTML = '-';
+      field.vol.innerHTML = '-';
+
       console.log(`URL: ${path}/${coin.id}/ticker/`);
     }
 
-    function showOrderBook(value) {
-      const coin = value.target === undefined 
-        ? selected : value.target;
+    function showOrderBook(coin) {
       const field = { title: elementId('negotiations-title') };
 
       $.getJSON(`${path}/${coin.id}/orderbook/`).done(function(data) {
@@ -104,18 +103,18 @@ $(function() {
       }
     }
 
-    function showTrades(value) {
-      const coin = value.target === undefined 
-        ? selected : value.target;
-
+    function showTrades(coin) {      
       $.getJSON(`${path}/${coin.id}/trades/`).done(function(data) {
-        data.forEach(function(element, index) {
+        data.reverse().forEach(function(element, index) {
+          const date = new Date(element.date * 1000);
+
           if(index < 20) {
             $('.trades-head')
             .append($('<tr />').addClass('trades-row'))
             .append(
               $('<td />').addClass('date trades-date')
-                .text(element.date),
+                .text(`${date.toLocaleDateString()}
+                  ${date.toLocaleTimeString()}`),
               $('<td />').addClass(`type trades-type 
               ${element.type === "sell" ? 'trades-sell' : 'trades-buy'}`)
                 .text(element.type === 'sell' ? 'Venda' : 'Compra'),
