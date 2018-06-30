@@ -14,6 +14,7 @@ $(function() {
       showTicker(coin);
       showOrderBook(coin);
       showTrades(coin);
+      changeStyle(coin);
 
       selected.id = coin.id;
       console.log('selectedCoin', selected);
@@ -57,26 +58,28 @@ $(function() {
 
         bids.forEach(function(element, index) {
           if(index < 20) {
-            $('.bids-head')
-            .append($('<tr />').addClass('bids-row'))
-            .append(
-              $('<td />').addClass('quantity bids-quantity')
-                .text(element[1].toFixed(5).replace('.', ',')),
-              $('<td />').addClass('price bids-price')
-                .text(element[0].toFixed(5).replace('.', ','))
+            $('#bids-table')
+            .append($('<tr />').addClass('bids-row')
+              .append(
+                $('<td />').addClass('quantity bids-quantity')
+                  .text(element[1].toFixed(5).replace('.', ',')),
+                $('<td />').addClass('price bids-price')
+                  .text(element[0].toFixed(5).replace('.', ','))
+              )
             );
           }
         });
 
         asks.forEach(function(element, index) {
           if(index < 20) {
-            $('.asks-head')
-            .append($('<tr />').addClass('asks-row'))
-            .append(
-              $('<td />').addClass('quantity asks-quantity')
-                .text(element[1].toFixed(5).replace('.', ',')),
-              $('<td />').addClass('price asks-price')
-                .text(element[0].toFixed(5).replace('.', ','))
+            $('#asks-table')
+            .append($('<tr />').addClass('asks-row')
+              .append(
+                $('<td />').addClass('quantity asks-quantity')
+                  .text(element[1].toFixed(5).replace('.', ',')),
+                $('<td />').addClass('price asks-price')
+                  .text(element[0].toFixed(5).replace('.', ','))
+              )
             );
           }
         });
@@ -109,19 +112,20 @@ $(function() {
           const date = new Date(element.date * 1000);
 
           if(index < 20) {
-            $('.trades-head')
-            .append($('<tr />').addClass('trades-row'))
-            .append(
-              $('<td />').addClass('date trades-date')
-                .text(`${date.toLocaleDateString()}
-                  ${date.toLocaleTimeString()}`),
-              $('<td />').addClass(`type trades-type 
-              ${element.type === "sell" ? 'trades-sell' : 'trades-buy'}`)
-                .text(element.type === 'sell' ? 'Venda' : 'Compra'),
-              $('<td />').addClass('quantity trades-quantity')
-                .text(element.amount.toFixed(5).replace('.', ',')),
-              $('<td />').addClass('price trades-price')
-                .text(element.price.toFixed(5).replace('.', ','))   
+            $('#trades-table')
+            .append($('<tr />').addClass('trades-row')
+              .append(
+                $('<td />').addClass('date trades-date')
+                  .text(`${date.toLocaleDateString()}
+                    ${date.toLocaleTimeString()}`),
+                $('<td />').addClass(`type trades-type 
+                ${element.type === "sell" ? 'trades-sell' : 'trades-buy'}`)
+                  .text(element.type === 'sell' ? 'Venda' : 'Compra'),
+                $('<td />').addClass('quantity trades-quantity')
+                  .text(element.amount.toFixed(5).replace('.', ',')),
+                $('<td />').addClass('price trades-price')
+                  .text(element.price.toFixed(5).replace('.', ','))
+              )   
             );
           }
         }) 
@@ -133,6 +137,29 @@ $(function() {
       $('.trades-type').remove();
       $('.trades-quantity').remove();
       $('.trades-price').remove();
+    }
+
+    function changeStyle(coin) {
+      switch(coin.id) {
+        case 'btc':
+          $('.navbar').css('border-bottom', "5px solid #F7AA61");
+          $('.btn').css('background-color', "#465B6C");
+          $('.btn-btc').css('background-color', "#F7AA61");
+          $('.head').css('background-color', "#F7AA61");
+          break;
+        case 'ltc':
+          $('.navbar').css('border-bottom', "5px solid #AFAAD6");
+          $('.btn').css('background-color', "#465B6C");
+          $('.btn-ltc').css('background-color', "#AFAAD6");
+          $('.head').css('background-color', "#AFAAD6");
+          break;
+        case 'bch':
+          $('.navbar').css('border-bottom', "5px solid #85BB65");
+          $('.btn').css('background-color', "#465B6C");
+          $('.btn-bch').css('background-color', "#85BB65");
+          $('.head').css('background-color', "#85BB65");
+          break; 
+      }
     }
 
     elementId('btc').onclick = loadCoin;

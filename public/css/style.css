@@ -87,7 +87,7 @@
   background-color: #FFF;
   margin-top: 25px;
   padding-left: 10px;
-  height: 650px;
+  height: 600px;
 }
 
 .title {
@@ -112,13 +112,23 @@
   padding: 10px;
 }
 
+.order-table {
+  border-collapse: collapse;
+}
+
+.bids-row:hover,
+.asks-row:hover,
+.trades-row:hover {
+  background-color: #EBECEE;
+}
+
 .price,
 .quantity,
 .type {
   /* background-color: #23A86A; */
   text-align: left;
   width: 100px;
-  padding: 2px 5px;
+  padding: 3px 5px;
 }
 
 .date {
