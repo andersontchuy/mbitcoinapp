@@ -143,18 +143,21 @@ $(function() {
       switch(coin.id) {
         case 'btc':
           $('.navbar').css('border-bottom', "5px solid #F7AA61");
+          $('.navbar').css('background-image', "url('../img/mb-logo-orange.png')");
           $('.btn').css('background-color', "#465B6C");
           $('.btn-btc').css('background-color', "#F7AA61");
           $('.head').css('background-color', "#F7AA61");
           break;
         case 'ltc':
           $('.navbar').css('border-bottom', "5px solid #AFAAD6");
+          $('.navbar').css('background-image', "url('../img/mb-logo-purple.png')");
           $('.btn').css('background-color', "#465B6C");
           $('.btn-ltc').css('background-color', "#AFAAD6");
           $('.head').css('background-color', "#AFAAD6");
           break;
         case 'bch':
           $('.navbar').css('border-bottom', "5px solid #85BB65");
+          $('.navbar').css('background-image', "url('../img/mb-logo-green.png')");
           $('.btn').css('background-color', "#465B6C");
           $('.btn-bch').css('background-color', "#85BB65");
           $('.head').css('background-color', "#85BB65");
